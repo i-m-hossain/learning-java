@@ -1,25 +1,26 @@
-
+# Object oriented programming
 <!-- TOC -->
-  * [Object Oriented Programming:](#object-oriented-programming)
-    * [What does object consist of?](#what-does-object-consist-of)
-    * [Procedural vs OOP:](#procedural-vs-oop)
-    * [Pillars of OOP:](#pillars-of-oop)
-      * [1. First Pillar - Data ABSTRACTION](#1-first-pillar---data-abstraction)
-      * [2. Second Pillar - Data ENCAPSULATION](#2-second-pillar---data-encapsulation)
-      * [3. Third Pillar - INHERITANCE](#3-third-pillar---inheritance)
-      * [4. Fourth Pillar - POLYMORPHISM](#4-fourth-pillar---polymorphism)
-    * ['Is a' relationship AND 'Has a' relationship:](#is-a-relationship-and-has-a-relationship)
+* [Object oriented programming](#object-oriented-programming)
+  * [Object Oriented Programming:](#object-oriented-programming-1)
+  * [What does object consist of?](#what-does-object-consist-of)
+  * [Procedural vs OOP:](#procedural-vs-oop)
+  * [Pillars of OOP:](#pillars-of-oop)
+    * [1. First Pillar - Data ABSTRACTION](#1-first-pillar---data-abstraction)
+    * [2. Second Pillar - Data ENCAPSULATION](#2-second-pillar---data-encapsulation)
+    * [3. Third Pillar - INHERITANCE](#3-third-pillar---inheritance)
+    * [4. Fourth Pillar - POLYMORPHISM](#4-fourth-pillar---polymorphism)
+  * ['Is a' relationship AND 'Has a' relationship:](#is-a-relationship-and-has-a-relationship)
 <!-- TOC -->
 
 ## Object Oriented Programming:
 Object-oriented programming aka _OOP_ is a computer programming model that organizes software design around **data or objects**, rather than functions and logic. **An object** can be defined as a data field that has unique attributes and behaviour.
 
 
-### What does object consist of?
+## What does object consist of?
 - Properties (instance variable/ member variables)
 - Behaviour (methods)
 
-### Procedural vs OOP:
+## Procedural vs OOP:
 | Sl | Procedural                                                                                   | OOP                                                  | 
 |----|----------------------------------------------------------------------------------------------|------------------------------------------------------| 
 | 1  | Program is divided into parts called function                                                | Program is divided into objects                      |
@@ -30,9 +31,9 @@ Object-oriented programming aka _OOP_ is a computer programming model that organ
 | 6  | Example: C, Fortran etc                                                                      | Example: Java, C++, C# etc                           |
 | 7  | Tightly coupled as the data moves freely                                                     | Loosely coupled                                      |
 
-### Pillars of OOP:
+## Pillars of OOP:
 
-#### 1. First Pillar - Data ABSTRACTION
+### 1. First Pillar - Data ABSTRACTION
 - It hides the internal implementation and show only essential functionality to the user
 - It can be achieved through interface and abstract classes
 - Example:
@@ -42,7 +43,7 @@ Object-oriented programming aka _OOP_ is a computer programming model that organ
 - **Advantage** of abstraction:
   - Increases security and confidentiality
     
-#### 2. Second Pillar - Data ENCAPSULATION
+### 2. Second Pillar - Data ENCAPSULATION
 - Encapsulation bundles the data and the code working on that data in a single unit
 - Also known as Data-Hiding
 - Steps to achieve encapsulation
@@ -52,7 +53,7 @@ Object-oriented programming aka _OOP_ is a computer programming model that organ
   - Loosely coupled code
   - Better access control and security
   
-#### 3. Third Pillar - INHERITANCE
+### 3. Third Pillar - INHERITANCE
 - Capability of a class to **inherit** properties from their parent clas
 - It can inherit both functions and variables, so we don't have to write them again in the child class
 - Can be achieved using **extends** keyword or through interface
@@ -65,7 +66,7 @@ Object-oriented programming aka _OOP_ is a computer programming model that organ
   - Code reusability
   - We can achieve **Polymorphism** using **Inheritance**
 
-#### 4. Fourth Pillar - POLYMORPHISM
+### 4. Fourth Pillar - POLYMORPHISM
 
 - Poly mean Many and Morphism means Form
 - Same methods behaves differently in different situation
@@ -110,7 +111,7 @@ public class Sum extends Math{
 }
 ```
 
-### 'Is a' relationship AND 'Has a' relationship:
+## 'Is a' relationship AND 'Has a' relationship:
 - Is a relationship:
   - Achieved through inheritance
   - Example: 

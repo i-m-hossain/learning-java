@@ -1,13 +1,13 @@
-## Java memory management and garbage collection
+# Java memory management and garbage collection
 <!-- TOC -->
-  * [Java memory management and garbage collection](#java-memory-management-and-garbage-collection)
-    * [Types of memory:](#types-of-memory)
-    * [How memory gets populated:](#how-memory-gets-populated)
-      * [Stack Memory:](#stack-memory)
-      * [Heap Memory](#heap-memory)
-    * [Code Example:](#code-example)
+* [Java memory management and garbage collection](#java-memory-management-and-garbage-collection)
+  * [Types of memory:](#types-of-memory)
+  * [How memory gets populated:](#how-memory-gets-populated)
+    * [Stack Memory:](#stack-memory)
+    * [Heap Memory](#heap-memory)
+  * [Code Example:](#code-example)
 <!-- TOC -->
-### Types of memory:
+## Types of memory:
 1. STACK - primitive data types
 2. HEAP - objects
 ---
@@ -18,8 +18,8 @@ N.B.
 * Heap is only one, all the objects, Strings are stored here 
 * All objects reference is used in different stacks and scopes inside every stack.
 ---
-### How memory gets populated:
-#### Stack Memory:
+## How memory gets populated:
+### Stack Memory:
 - Store temporary variables and separate memory block for methods
 - Store Primitive data types
 - Store Reference of the heap objects
@@ -46,7 +46,7 @@ N.B.
 - Variables within a SCOPE is only visible and as soon as any variable goes out of the SCOPE, it gets deleted from the Stack(in LIFO order)
 - When Stack memory goes full, it throws "java.lang.StackOverflowError"
 
-#### Heap Memory
+### Heap Memory
 - Store objects
 - There is no order of allocating the memory
 - Garbage collector runs periodically (JVM runs)
@@ -76,9 +76,9 @@ N.B.
     - final
   - How actually garbage collector works to collect the garbage(unreferenced objects) automatically:
       
-    ![img.png](img.png)
+    ![img.png](../img.png)
 
-### Code Example:
+## Code Example:
 ```java
 public class Person{
     String name;
