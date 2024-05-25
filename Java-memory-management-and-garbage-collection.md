@@ -1,6 +1,13 @@
 ## Java memory management and garbage collection
-
-### Types of memory(RAM):
+<!-- TOC -->
+  * [Java memory management and garbage collection](#java-memory-management-and-garbage-collection)
+    * [Types of memory:](#types-of-memory)
+    * [How memory gets populated:](#how-memory-gets-populated)
+      * [Stack Memory:](#stack-memory)
+      * [Heap Memory](#heap-memory)
+    * [Code Example:](#code-example)
+<!-- TOC -->
+### Types of memory:
 1. STACK - primitive data types
 2. HEAP - objects
 ---
@@ -12,62 +19,62 @@ N.B.
 * All objects reference is used in different stacks and scopes inside every stack.
 ---
 ### How memory gets populated:
-1. **Stack Memory:**
-   - Store temporary variables and separate memory block for methods
-   - Store Primitive data types
-   - Store Reference of the heap objects
-     - _Strong reference_: Example:
-       * ``Person person = new Person()``;
-       * Here, person is a strong reference. 
-       * The object will not be collected by the garbage collector as long as person is in scope and not set to null.
-     - _Weak reference_: Example:
-       * `` WeakReference<Person> weakPerson = new WeakReference<>(new Person()); ``
-       * The WeakReference allows garbage collection to collect the Person object if there are no other strong references to it
-       * If the garbage collector runs and there are no strong references to the Person object, it will be collected, and the weak reference will no longer be valid.
-       * Use cases:
-         1. Caching: Useful for caching scenarios where you want to keep objects in memory if possible but don't want them to be kept alive just because they are cached.
-         2. Event Handlers: Helps in avoiding memory leaks caused by event handlers holding strong references to objects.
-     - _Soft reference_: Example:
-       * `` SoftReference<Person> softPerson = new SoftReference<>(new Person("John Doe")); ``
-       * If sufficient space is available, the soft referenced object will not be deleted by GC
-       * Allows garbage collection to collect the object only when memory is low.
-       * If the JVM is running low on memory, the garbage collector will reclaim soft-referenced objects to free up memory
-       * Use cases:
-         1. Caching: Soft references are particularly useful for caches where you want to keep objects in memory as long as possible but also allow the garbage collector to reclaim them when memory is needed.
-         2. Memory Management: Helps in applications with fluctuating memory usage by allowing the garbage collector to reclaim memory from soft-referenced objects during high memory demand.
-   - Each thread has its own Stack memory, although we have only one heap for all the threads
-   - Variables within a SCOPE is only visible and as soon as any variable goes out of the SCOPE, it gets deleted from the Stack(in LIFO order)
-   - When Stack memory goes full, it throws "java.lang.StackOverflowError"
+#### Stack Memory:
+- Store temporary variables and separate memory block for methods
+- Store Primitive data types
+- Store Reference of the heap objects
+  - _Strong reference_: Example:
+    * ``Person person = new Person()``;
+    * Here, person is a strong reference. 
+    * The object will not be collected by the garbage collector as long as person is in scope and not set to null.
+  - _Weak reference_: Example:
+    * `` WeakReference<Person> weakPerson = new WeakReference<>(new Person()); ``
+    * The WeakReference allows garbage collection to collect the Person object if there are no other strong references to it
+    * If the garbage collector runs and there are no strong references to the Person object, it will be collected, and the weak reference will no longer be valid.
+    * Use cases:
+      1. Caching: Useful for caching scenarios where you want to keep objects in memory if possible but don't want them to be kept alive just because they are cached.
+      2. Event Handlers: Helps in avoiding memory leaks caused by event handlers holding strong references to objects.
+  - _Soft reference_: Example:
+    * `` SoftReference<Person> softPerson = new SoftReference<>(new Person("John Doe")); ``
+    * If sufficient space is available, the soft referenced object will not be deleted by GC
+    * Allows garbage collection to collect the object only when memory is low.
+    * If the JVM is running low on memory, the garbage collector will reclaim soft-referenced objects to free up memory
+    * Use cases:
+      1. Caching: Soft references are particularly useful for caches where you want to keep objects in memory as long as possible but also allow the garbage collector to reclaim them when memory is needed.
+      2. Memory Management: Helps in applications with fluctuating memory usage by allowing the garbage collector to reclaim memory from soft-referenced objects during high memory demand.
+- Each thread has its own Stack memory, although we have only one heap for all the threads
+- Variables within a SCOPE is only visible and as soon as any variable goes out of the SCOPE, it gets deleted from the Stack(in LIFO order)
+- When Stack memory goes full, it throws "java.lang.StackOverflowError"
 
-2. **Heap Memory**
-    - Store objects
-    - There is no order of allocating the memory
-    - Garbage collector runs periodically (JVM runs)
-    - System.gc() --method is run by JVM automatically to destroy unreferenced objects
-    - Garbage collector is used to delete the unreferenced objects from the heap
-      - Mark and Sweep Algorithm
-      - Types of Garbage Collector:
-        - Serial GC (only 1 thread was used, slow because application pauses during clean up)
-        - Parallel GC (default  java 8, still slow as application pauses) 
-        - CMS (Concurrent Mark & Sweep) (application thread and GC thread run parallel, but not 100% guaranteed. but compaction not happen. any way faster than previous two types)
-        - G1 (latest versions of java: compaction and parallel both happens, fastest) ensures high throughput and less latency
-    - Heap memory is shared with all the threads
-    - Heap also contains the String pool
-    - When Heap memory goes full, it throws "java.lang.OutOfMemoryError"
-    - Heap memory is further divided into:
-      - Young generation(Minor GC happens here)
-        - Eden (objects are created get stored here first)
-        - Survivor (After mark and sweep algorithm is run by GC, the survived objects are moved to s0)
-          - s0 : age increments if not deleted by gc
-          - s1 : age increments if not deleted by gc
-      - Old/Tenured Generation(Major GC happens here) : there is a threshold(lets say age >=3) after that object moves to old generation from young generation
-      - Permanent Generation(previously)/Non Heap(Meta space): stores following:
-        - class variables
-        - class metadata
-        - constants
-        - static 
-        - final
-      - How actually garbage collector works to collect the garbage(unreferenced objects) automatically:
+#### Heap Memory
+- Store objects
+- There is no order of allocating the memory
+- Garbage collector runs periodically (JVM runs)
+- System.gc() --method is run by JVM automatically to destroy unreferenced objects
+- Garbage collector is used to delete the unreferenced objects from the heap
+  - Mark and Sweep Algorithm
+  - Types of Garbage Collector:
+    - Serial GC (only 1 thread was used, slow because application pauses during clean up)
+    - Parallel GC (default  java 8, still slow as application pauses) 
+    - CMS (Concurrent Mark & Sweep) (application thread and GC thread run parallel, but not 100% guaranteed. but compaction not happen. any way faster than previous two types)
+    - G1 (latest versions of java: compaction and parallel both happens, fastest) ensures high throughput and less latency
+- Heap memory is shared with all the threads
+- Heap also contains the String pool
+- When Heap memory goes full, it throws "java.lang.OutOfMemoryError"
+- Heap memory is further divided into:
+  - Young generation(Minor GC happens here)
+    - Eden (objects are created get stored here first)
+    - Survivor (After mark and sweep algorithm is run by GC, the survived objects are moved to s0)
+      - s0 : age increments if not deleted by gc
+      - s1 : age increments if not deleted by gc
+  - Old/Tenured Generation(Major GC happens here) : there is a threshold(lets say age >=3) after that object moves to old generation from young generation
+  - Permanent Generation(previously)/Non Heap(Meta space): stores following:
+    - class variables
+    - class metadata
+    - constants
+    - static 
+    - final
+  - How actually garbage collector works to collect the garbage(unreferenced objects) automatically:
       
     ![img.png](img.png)
 
