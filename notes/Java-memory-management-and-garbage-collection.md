@@ -76,7 +76,7 @@ N.B.
     - final
   - How actually garbage collector works to collect the garbage(unreferenced objects) automatically:
       
-    ![img.png](../img.png)
+    ![img.png](images/memory-management.png)
 
 ## Code Example:
 ```java

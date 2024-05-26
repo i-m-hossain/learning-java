@@ -14,3 +14,5 @@
 - At step 3: Terminal operations like: collect(), forEach(), reduce(), count(),findFirst(),min(), max(), toArray(), findAny(),anyMatch(),  allMatch() and noneMatch() are used
   - These operations trigger the processing of the stream
   - and produce the output , means after terminal operation used, no more operation we can perform.
+
+
