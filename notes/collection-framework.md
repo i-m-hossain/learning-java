@@ -1,5 +1,12 @@
 # Java Collection Framework
-
+<!-- TOC -->
+* [Java Collection Framework](#java-collection-framework)
+  * [What is java collection framework?](#what-is-java-collection-framework)
+  * [Why we need java collection framework?](#why-we-need-java-collection-framework)
+  * [Collection:](#collection)
+* [Java Collection Methods and Usage](#java-collection-methods-and-usage)
+  * [Diagram](#diagram)
+<!-- TOC -->
 ## What is java collection framework?
 - Collection is nothing but a group of Objects
 - Present in java.util package
@@ -82,5 +89,5 @@ It represents the group of object. Its an interface which provides methods to wo
 |                  | `values()`           | Returns a Collection view of the values contained in this map.          | Getting a collection of all values in the map                    |
 |                  | `entrySet()`         | Returns a Set view of the mappings contained in this map.               | Getting a set of all key-value pairs                             |
 
-
+## Diagram
 ![img_3.png](images/img_3.png)
