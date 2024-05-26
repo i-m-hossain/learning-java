@@ -4,7 +4,7 @@
   * [What is java collection framework?](#what-is-java-collection-framework)
   * [Why we need java collection framework?](#why-we-need-java-collection-framework)
   * [Collection:](#collection)
-* [Java Collection Methods and Usage](#java-collection-methods-and-usage)
+  * [Java Collection Methods and Usage](#java-collection-methods-and-usage)
   * [Diagram](#diagram)
 <!-- TOC -->
 ## What is java collection framework?
@@ -26,7 +26,7 @@ List<Integer> numbers = new ArrayList<>();
 
 ## Collection:
 It represents the group of object. Its an interface which provides methods to work on group of objects. The most common used methods are below
-# Java Collection Methods and Usage
+## Java Collection Methods and Usage
 
 | Collection Class | Method                              | Description                                                             | Usage Example                                                   |
 |------------------|-------------------------------------|-------------------------------------------------------------------------|-----------------------------------------------------------------|
